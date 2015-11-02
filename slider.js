@@ -79,7 +79,8 @@ $.fn.alertWhileClick=function(){
 		   obj   :   '#scroll',
 		   speed  :    3000,
 		   auto:      true,
-		   scrollNums : 2
+		   scrollNums : 2,
+		   direction : "left"
 		 }
 		 var timeId;
 		 var len = $('#scroll a').length;
@@ -87,12 +88,21 @@ $.fn.alertWhileClick=function(){
 		 var width = $('#scroll a').width()
 		 var auto  = settings.auto
 		 var scrollNums  = settings.scrollNums
+		 var direction = settings.direction=="left" ? true : false
 		 if(auto){
-			 $('#scrollF').hover(function(){
-		        timeId && clearInterval(timeId)
-		     },function(){
-		        timeId = setInterval(scrollleft,settings.speed)
-	         }).trigger('mouseleave') 
+		 	 if(!direction){
+                $('#scrollF').hover(function(){
+		          timeId && clearInterval(timeId)
+		        },function(){
+		           timeId = setInterval(scrollright,settings.speed)
+	            }).trigger('mouseleave') 
+		 	 }else{
+		 	 	$('#scrollF').hover(function(){
+		          timeId && clearInterval(timeId)
+		        },function(){
+		           timeId = setInterval(scrollleft,settings.speed)
+	            }).trigger('mouseleave') 
+		 	 }			 
 	    }else{
 			 timeId && clearInterval(timeId)	 
 		}
