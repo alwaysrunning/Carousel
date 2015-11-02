@@ -1,77 +1,3 @@
-// 1、给JQuery类本身添加方法
-/*jQuery.foo=function(){
-	alert('hello')
-	};
-jQuery.bar=function(para){
-	alert(para)
-	}	*/
-
-
-// 1、给JQuery添加方法
-/*	
-jQuery.extend({
-   foo: function(){
-	alert('hello')
-	},
-   bar: function(para){
-	alert(para)
-	}	
-})	*/
-
-//通过这个技巧（使用独立的插件名），我们可以避免命名空间内函数的冲突。
-/*jQuery.myPlugin={
-   foo: function(){
-	  alert('hello')
-	},
-   bar: function(para){
-	alert(para)
-	}	
-}
-$.myPlugin.foo();         
-$.myPlugin.bar('baz');*/ 
-
-
-
-
-
-// 2、给JQuery对象添加方法
-/*;(function($){
-$.fn.extend({        
-     alertWhileClick: function(){       
-         $(this).click(function(){      
-              alert($(this).val());       
-          });       
-      }       
-  }); 	
-})(jQuery)*/
-
-
-/*;(function($){
-$.fn.alertWhileClick=function(){
-	$(this).click(function(){
-		alert($(this).html())
-		})
-	}	
-}(jQuery))
-
-
-;(function($){
- $.fn.extend({
-	 fontChange: function(options){
-	     var defaults={
-			 fontSize: 12,
-			 fontColor: 'red',
-			 height:  23,
-			 backGround: 'blue',
-			 }
-		var settings = $.extend(defaults,options)
-	    console.log(this)
-		return $(this).css({'fontSize':settings.fontSize,'color':settings.fontColor,'height':settings.height,'backgroundColor':settings.backGround})	 	 
-	 }
-  })
-}(jQuery))
-*/
-     
 ;(function($){
   $.fn.extend({
 	 slider:function(options){
@@ -144,6 +70,82 @@ $.fn.alertWhileClick=function(){
 
 
 
+
+// 写插件的基本格式
+
+// 1、给JQuery类本身添加方法
+/*jQuery.foo=function(){
+	alert('hello')
+	};
+jQuery.bar=function(para){
+	alert(para)
+	}	*/
+
+
+
+/*	
+jQuery.extend({
+   foo: function(){
+	alert('hello')
+	},
+   bar: function(para){
+	alert(para)
+	}	
+})	*/
+
+//通过这个技巧（使用独立的插件名），我们可以避免命名空间内函数的冲突。
+/*jQuery.myPlugin={
+   foo: function(){
+	  alert('hello')
+	},
+   bar: function(para){
+	alert(para)
+	}	
+}
+$.myPlugin.foo();         
+$.myPlugin.bar('baz');*/ 
+
+
+
+
+
+// 2、给JQuery对象添加方法
+/*;(function($){
+$.fn.extend({        
+     alertWhileClick: function(){       
+         $(this).click(function(){      
+              alert($(this).val());       
+          });       
+      }       
+  }); 	
+})(jQuery)*/
+
+
+/*;(function($){
+$.fn.alertWhileClick=function(){
+	$(this).click(function(){
+		alert($(this).html())
+		})
+	}	
+}(jQuery))
+
+
+;(function($){
+ $.fn.extend({
+	 fontChange: function(options){
+	     var defaults={
+			 fontSize: 12,
+			 fontColor: 'red',
+			 height:  23,
+			 backGround: 'blue',
+			 }
+		var settings = $.extend(defaults,options)
+	    console.log(this)
+		return $(this).css({'fontSize':settings.fontSize,'color':settings.fontColor,'height':settings.height,'backgroundColor':settings.backGround})	 	 
+	 }
+  })
+}(jQuery))
+*/
 
 
 
